@@ -12,6 +12,8 @@ RUN npm ci --no-audit --no-fund
 
 # Copy source
 COPY tsconfig.json tsconfig.app.json tsconfig.node.json vite.config.ts ./
+# Vite requires index.html at project root during build
+COPY index.html ./
 COPY public ./public
 COPY src ./src
 

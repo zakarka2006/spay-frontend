@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useMessage } from 'naive-ui';
-import { NCard, NForm, NFormItem, NInput, NButton, NDivider, NAlert, NPopconfirm } from 'naive-ui';
+import { NCard, NForm, NFormItem, NInput, NButton, NAlert, NPopconfirm } from 'naive-ui';
 import { deleteUser } from '../api/user';
 import { unwrap } from '../api/client';
 import { useAuth } from '../composables/useAuth';
@@ -10,9 +10,6 @@ import { useAuth } from '../composables/useAuth';
 const router = useRouter();
 const message = useMessage();
 const { logout } = useAuth();
-
-// Demo field (not wired)
-const username = ref('');
 
 // Danger zone state
 const dangerPassword = ref('');

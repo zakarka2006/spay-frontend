@@ -2,7 +2,7 @@
 import { ref, watch, nextTick, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useAuth } from '../composables/useAuth';
-import { NTabs, NFlex, NTabPane, NLayout, NLayoutHeader, NLayoutContent, NButton, NSpace } from 'naive-ui';
+import { NTabs, NFlex, NTabPane, NLayout, NLayoutHeader, NLayoutContent, NButton } from 'naive-ui';
 import type { TabsInst } from 'naive-ui';
 
 type TabName = 'home' | 'settings' | 'billing';
