@@ -11,7 +11,7 @@ services:
     container_name: spay-frontend
     ports:
       # Default host port changed to 8081 to avoid conflicts; override with PORT env or remove this block if using an external proxy
-      - "${PORT:-80}:80"
+      - "4242:80"
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"

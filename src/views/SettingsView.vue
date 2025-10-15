@@ -58,6 +58,11 @@ function loadCardsDebounced(delay = 200) {
   }, delay);
 }
 
+// Click handler wrapper to satisfy Naive UI's (e: MouseEvent) => void signature
+const onRefreshCards = () => {
+  loadCardsDebounced();
+};
+
 async function initStripe() {
   try {
     stripe.value = await getStripe();
@@ -88,7 +93,7 @@ async function loadCards() {
   try {
     cards.value = await unwrap(getCards());
     if (!selectedCardId.value && cards.value.length > 0) {
-      selectedCardId.value = cards.value[0]?.id;
+      selectedCardId.value = cards.value[0]?.id ?? null;
     }
   } catch (err: any) {
     const msg = err?.message || 'Не удалось загрузить карты';
@@ -228,7 +233,7 @@ onMounted(() => {
         </n-form>
         <div style="display: flex; justify-content: start; align-items: center">
           <n-button type="primary" primary :disabled="!stripeReady" :loading="addingCard" @click="onAddCardViaStripe" style="margin-right: 12px">Добавить карту</n-button>
-          <n-button secondary @click="loadCardsDebounced">Обновить список</n-button>
+          <n-button secondary @click="onRefreshCards">Обновить список</n-button>
         </div>
       </n-flex>
 
@@ -278,7 +283,7 @@ onMounted(() => {
             </n-form-item>
             <div style="display: flex; justify-content: start; align-items: center">
               <n-button type="primary" :disabled="!selectedCardId || cards.length === 0" :loading="creatingSub" @click="onCreateSubscription">Оформить подписку</n-button>
-              <n-button secondary @click="loadCardsDebounced" style="margin-left: 12px;">Обновить карты</n-button>
+              <n-button secondary @click="onRefreshCards" style="margin-left: 12px;">Обновить карты</n-button>
             </div>
           </n-form>
           <div v-if="cards.length === 0" style="margin-top: 8px;">Сначала добавьте платёжную карту выше.</div>
