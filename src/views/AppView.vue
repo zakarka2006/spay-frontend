@@ -69,7 +69,7 @@ async function onLogout() {
         <n-button tertiary type="error" @click="onLogout">Выйти</n-button>
       </n-flex>
     </n-layout-header>
-    <n-layout-content style="padding:16px;">
+    <n-layout-content style="padding:16px;padding-top:8px;">
       <router-view/>
     </n-layout-content>
   </n-layout>

@@ -35,7 +35,7 @@ async function onSubmit() {
   <div style="display:flex;height:100%;width: 100%;align-items:center;justify-content:center">
     <n-card style="max-width:450px;width:90%;" title="Вход">
       <n-form @submit.prevent="onSubmit">
-        <n-form-item label="Email">
+        <n-form-item label="Почта">
           <n-input id="email" v-model:value="form.email" placeholder="you@example.com" type="text" />
         </n-form-item>
         <n-form-item label="Пароль">

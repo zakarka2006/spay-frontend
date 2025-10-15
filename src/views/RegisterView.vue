@@ -37,7 +37,7 @@ async function onSubmit() {
         <n-form-item label="Имя пользователя">
           <n-input v-model:value="form.username" placeholder="Ваше имя" />
         </n-form-item>
-        <n-form-item label="Email">
+        <n-form-item label="Почта">
           <n-input v-model:value="form.email" placeholder="you@example.com" type="text" />
         </n-form-item>
         <n-form-item label="Пароль">
